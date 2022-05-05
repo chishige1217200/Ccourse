@@ -28,9 +28,9 @@ int main(void)
     printf("sum: %d\n", int_list_sum());
     printf("len: %d\n", int_list_len());
 
-    int_list_del(3);
+    int_list_del(2);
     int_list_print();
-    int_list_del(1);
+    int_list_del(0);
     int_list_print();
 
     printf("sum: %d\n", int_list_sum());
@@ -98,16 +98,11 @@ void int_list_del(int a)
 {
     struct int_list *ne = parent;
     struct int_list *del = NULL;
-    int counter = 1;
+    int counter = 0;
 
-    if (a == 0)
-    {
-        fprintf(stderr, "その操作はサポートされていません．\n");
-        return;
-    }
     if (a < 0 && a >= -int_list_len())
     {
-        a = int_list_len() + 1 + a; // 後ろからのインデックスを変換
+        a = int_list_len() + a; // 後ろからのインデックスを変換
     }
 
     if (parent == NULL)
@@ -119,7 +114,7 @@ void int_list_del(int a)
     {
         while (1)
         {
-            if (a == 1)
+            if (a == 0)
             {
                 parent = ne->next;
                 free(ne);
