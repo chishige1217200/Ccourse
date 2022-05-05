@@ -25,9 +25,9 @@ int main(void)
         int_list_print();
     }
 
-    int_list_del(3);
+    int_list_del(2);
     int_list_print();
-    int_list_del(1);
+    int_list_del(0);
     int_list_print();
 
     return 0;
@@ -89,9 +89,9 @@ void int_list_del(int a)
 {
     struct int_list *ne = parent;
     struct int_list *del = NULL;
-    int counter = 1;
+    int counter = 0;
 
-    if (a < 1)
+    if (a < 0)
     {
         fprintf(stderr, "その操作はサポートされていません．\n");
         return;
@@ -106,7 +106,7 @@ void int_list_del(int a)
     {
         while (1)
         {
-            if (a == 1)
+            if (a == 0)
             {
                 parent = ne->next;
                 free(ne);
