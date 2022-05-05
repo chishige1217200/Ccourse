@@ -5,6 +5,7 @@ void int_list_print();
 void int_list_append(int a);
 void int_list_del(int a);
 // int int_list_sum(); // リストの要素の合計を返す関数（演習用）
+// int int_list_len(); // リストの要素の数を返す関数（演習用）
 
 struct int_list
 {
