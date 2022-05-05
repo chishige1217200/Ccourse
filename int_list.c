@@ -71,7 +71,7 @@ void int_list_append(int a)
     struct int_list *ne;
     if (parent == NULL)
     {
-        parent = malloc(sizeof(struct int_list *)); // 動的メモリ確保
+        parent = malloc(sizeof(struct int_list)); // 動的メモリ確保
         parent->num = a;
         parent->next = NULL;
         return;
@@ -85,7 +85,7 @@ void int_list_append(int a)
                 ne = ne->next;
             else
             {
-                ne->next = malloc(sizeof(struct int_list *)); // 動的メモリ確保
+                ne->next = malloc(sizeof(struct int_list)); // 動的メモリ確保
                 ne->next->num = a;
                 ne->next->next = NULL;
                 return;
