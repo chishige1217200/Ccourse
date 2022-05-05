@@ -4,8 +4,8 @@
 void int_list_print();
 void int_list_append(int a);
 void int_list_del(int a);
-// int int_list_sum(); // リストの要素の合計を返す関数（演習用）
-// int int_list_len(); // リストの要素の数を返す関数（演習用）
+int int_list_sum(); // リストの要素の合計を返す関数（演習用）
+int int_list_len(); // リストの要素の数を返す関数（演習用）
 
 struct int_list
 {
@@ -25,9 +25,18 @@ int main(void)
         int_list_print();
     }
 
+    printf("sum: %d\n", int_list_sum());
+    printf("len: %d\n", int_list_len());
+
     int_list_del(3);
     int_list_print();
     int_list_del(1);
+    int_list_print();
+
+    printf("sum: %d\n", int_list_sum());
+    printf("len: %d\n", int_list_len());
+
+    int_list_del(-1);
     int_list_print();
 
     return 0;
@@ -91,10 +100,14 @@ void int_list_del(int a)
     struct int_list *del = NULL;
     int counter = 1;
 
-    if (a < 1)
+    if (a == 0)
     {
         fprintf(stderr, "その操作はサポートされていません．\n");
         return;
+    }
+    if (a < 0 && a >= -int_list_len())
+    {
+        a = int_list_len() + 1 + a; // 後ろからのインデックスを変換
     }
 
     if (parent == NULL)
@@ -130,5 +143,44 @@ void int_list_del(int a)
                 return;
             }
         }
+    }
+}
+
+int int_list_sum()
+{
+    if (parent == NULL)
+    {
+        return 0;
+    }
+
+    int total = 0;
+    struct int_list *ne = parent;
+
+    while (1)
+    {
+        total += ne->num;
+        if (ne->next == NULL)
+            return total;
+        else
+            ne = ne->next;
+    }
+}
+
+int int_list_len()
+{
+    if (parent == NULL)
+    {
+        return 0;
+    }
+
+    int counter = 1;
+    struct int_list *ne = parent;
+
+    while (1)
+    {
+        if (ne->next == NULL)
+            return counter;
+        counter++;
+        ne = ne->next;
     }
 }
