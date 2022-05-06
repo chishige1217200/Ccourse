@@ -7,6 +7,7 @@ int main(void)
     printf("%s\n", hello);
 
     // "Hello, World."と表示できるように配列helloを編集
+    hello[6] = 32;
 
     printf("%s\n", hello);
 
