@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // This code won't work correctly.
 {
     int i = 0;
 
