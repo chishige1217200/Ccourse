@@ -10,9 +10,18 @@ int main(void)
 
     printf("Before: %s\n", c);
 
-    // 小文字を大文字に変換
+    // 開始アドレスを代入
+    p = c;
 
-    printf(" After: %s\n\n", c);
+    // 小文字を大文字に変換
+    while (*p != 0)
+    {
+        if (*p >= 97 && *p <= 122)
+            *p = *p - 32;
+        p++;
+    }
+
+    printf(" After: %s\n", c);
 
     return 0; // 慣例
 }
