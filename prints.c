@@ -11,7 +11,7 @@ void print_string(char *p)
 
 int main(void)
 {
-    char hello[13] = "Hello, World.";
+    char hello[14] = "Hello, World.";
 
     printf("%s\n", hello);
 
