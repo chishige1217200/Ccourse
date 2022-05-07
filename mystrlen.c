@@ -2,7 +2,15 @@
 
 int mystrlen(char *p)
 {
-    return 0; // 正しい結果をreturnするように変更
+    int counter = 0;
+
+    while (*p != '\0')
+    {
+        counter++;
+        p++;
+    }
+
+    return counter;
 }
 
 int main(void)
